@@ -81,3 +81,12 @@ configure(allprojects) { project ->
 configure(webProjects) { project ->
     apply plugin: 'org.springframework.boot'
 }
+
+bootJar{
+	mainClassName ='com.apress.prospringmvc.bookstore.BookstoreApplication';
+}
+bootRun {
+	String activeProfile = System.properties['spring.profiles.active']
+	systemProperty "spring.profiles.active", activeProfile
+
+}
