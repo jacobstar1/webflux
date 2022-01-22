@@ -34,6 +34,7 @@ public class CartController {
     public String addToCart(@PathVariable("bookId") long bookId, @RequestHeader("referer") String referer) {
         var book = this.bookstoreService.findBook(bookId);
         this.cart.addBook(book);
+				System.out.println("ee");
         this.logger.info("Cart: {}", this.cart);
         return "redirect:" + referer;
     }
